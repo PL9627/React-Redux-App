@@ -1,25 +1,40 @@
 import React from "react";
 import { connect } from "react-redux";
+import styled from 'styled-components';
 
 import { getJikan } from "../actions/actions";
+
+const Btn = styled.button`
+    padding: 10px 25px;
+    font-size: 16px;
+    border: 1px solid blue;
+    color: blue;
+    background: white;
+    border-radius: 10px;
+
+    &:hover {
+      background: blue;
+      color: white;
+    }
+`;
 
 const Jikan = ({ getJikan, website, isFetching, error }) => {
   if (error !== "") {
     return (
       <div>
         <h2>{error}</h2>
-        <button onClick={getJikan}>Generate Jikan Link</button>
+        <Btn onClick={getJikan}>Generate Jikan Link</Btn>
       </div>
     );
   }
 
   if (isFetching) {
-    return <h2>Grabbing Jikan now...</h2>;
+    return <h1>Grabbing link now...</h1>;
   } else {
     return (
       <div>
-        <h2>Link: {website}</h2>
-        <button onClick={getJikan}>Generate Jikan Link</button>
+        <h2>Link to Jikan: {website}</h2>
+        <Btn onClick={getJikan}>Generate Jikan Link</Btn>
       </div>
     );
   }
@@ -27,6 +42,7 @@ const Jikan = ({ getJikan, website, isFetching, error }) => {
 
 const mapStateToProps = (state) => {
   return {
+    website: state.website,
     isFetching: state.isFetching,
     error: state.error,
   };
