@@ -33,7 +33,7 @@ const Jikan = ({ getJikan, website, isFetching, error }) => {
   } else {
     return (
       <div>
-        <h2>Link to Jikan: {website}</h2>
+        <h2>Link to Jikan: <a href='https://jikan.moe'>{website}</a></h2>
         <Btn onClick={getJikan}>Generate Jikan Link</Btn>
       </div>
     );
