@@ -1,12 +1,12 @@
-import React from 'react';
-import './App.css';
-import JikanLink from './components/JikanLink'
+import React from "react";
+import "./App.css";
+import Jikan from "./components/Jikan";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-       <JikanLink />
+        <Jikan />
       </header>
     </div>
   );
